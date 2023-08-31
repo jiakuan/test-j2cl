@@ -41,3 +41,24 @@ And configure annotation processor:
   </configuration>
 </plugin>
 ```
+
+Rename `org/docstr/j2cl/TestJ2CL.native.js` to `org/docstr/j2cl/TestJ2CL.native.js__` and add `@GWT3EntryPoint` annotation to `org.docstr.j2cl.TestJ2CL` class:
+
+```java
+  @GWT3EntryPoint
+  public void onModuleLoad() {
+    // ...
+  }
+```
+
+When running the following command:
+
+```shell
+mvn j2cl:build
+```
+
+The generated JS file `target/test-j2cl-1.0-SNAPSHOT/test-j2cl/test-j2cl.js` is kind of empty:
+
+```javascript
+(function(){globalThis.g=function(){};}).call(this);
+```
