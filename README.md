@@ -57,7 +57,7 @@ When running the following command:
 mvn j2cl:build
 ```
 
-The generated JS file `target/test-j2cl-1.0-SNAPSHOT/test-j2cl/test-j2cl.js` is kind of empty:
+The generated JS file `target/test-j2cl-1.0-SNAPSHOT/test-j2cl/test-j2cl.js` is kind of empty (no app logic included):
 
 ```javascript
 (function(){globalThis.g=function(){};}).call(this);
