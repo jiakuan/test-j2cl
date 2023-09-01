@@ -13,33 +13,18 @@ mvn archetype:generate -DarchetypeGroupId=com.vertispan.j2cl.archetypes \
 Then add a dependency:
 
 ```xml
-
 <dependency>
   <groupId>org.treblereel.j2cl.processors</groupId>
   <artifactId>annotations</artifactId>
-  <version>0.5.1</version>
+  <version>0.6</version>
 </dependency>
-```
 
-And configure annotation processor:
-
-```xml
-<plugin>
-  <artifactId>maven-compiler-plugin</artifactId>
-  <version>${maven.compiler.plugin.version}</version>
-  <configuration>
-    <source>${maven.compiler.source}</source>
-    <target>${maven.compiler.target}</target>
-
-    <annotationProcessorPaths>
-      <path>
-        <groupId>org.treblereel.j2cl.processors</groupId>
-        <artifactId>processors</artifactId>
-        <version>0.5.1</version>
-      </path>
-    </annotationProcessorPaths>
-  </configuration>
-</plugin>
+<dependency>
+<groupId>org.treblereel.j2cl.processors</groupId>
+<artifactId>processors</artifactId>
+<version>0.6</version>
+<scope>provided</scope>
+</dependency>
 ```
 
 Rename `org/docstr/j2cl/TestJ2CL.native.js` to `org/docstr/j2cl/TestJ2CL.native.js__` and add `@GWT3EntryPoint` annotation to `org.docstr.j2cl.TestJ2CL` class:
@@ -51,14 +36,10 @@ Rename `org/docstr/j2cl/TestJ2CL.native.js` to `org/docstr/j2cl/TestJ2CL.native.
   }
 ```
 
-When running the following command:
+Then run the following command to build:
 
 ```shell
 mvn j2cl:build
 ```
 
-The generated JS file `target/test-j2cl-1.0-SNAPSHOT/test-j2cl/test-j2cl.js` is kind of empty (no app logic included):
-
-```javascript
-(function(){globalThis.g=function(){};}).call(this);
-```
+The generated JS file is located at `target/test-j2cl-1.0-SNAPSHOT/test-j2cl/test-j2cl.js`.

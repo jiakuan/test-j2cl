@@ -28,7 +28,14 @@
     <dependency>
       <groupId>org.treblereel.j2cl.processors</groupId>
       <artifactId>annotations</artifactId>
-      <version>0.5.1</version>
+      <version>0.6</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.treblereel.j2cl.processors</groupId>
+      <artifactId>processors</artifactId>
+      <version>0.6</version>
+      <scope>provided</scope>
     </dependency>
 
     <dependency>
@@ -74,14 +81,6 @@
         <configuration>
           <source>${maven.compiler.source}</source>
           <target>${maven.compiler.target}</target>
-
-          <annotationProcessorPaths>
-            <path>
-              <groupId>org.treblereel.j2cl.processors</groupId>
-              <artifactId>processors</artifactId>
-              <version>0.5.1</version>
-            </path>
-          </annotationProcessorPaths>
         </configuration>
       </plugin>
       <plugin>
